@@ -7,8 +7,7 @@ const {
   getEstablecimientos,
   getCategorias,
   getDisponibilidad1,
-  getDisponibilidad2,
-  getDisponibilidad2Categ
+  getDisponibilidad2
 } = require("../controllers/index.controllers");
 
 router.get("/redes", getRedes);
@@ -17,6 +16,6 @@ router.get("/establecimientos/red/:red/microred/:microred", getEstablecimientos)
 router.get("/categorias", getCategorias);
 router.get("/indicadores/disponibilidad1/almcod/:almcod", getDisponibilidad1);
 router.get("/indicadores/disponibilidad2/almcod/:almcod", getDisponibilidad2);
-router.get("/indicadores/disponibilidad2/almcod/:almcod/categ/:categ", getDisponibilidad2Categ);
+router.get("/indicadores/disponibilidad2/almcod/:almcod/categ/:categ", getDisponibilidad2);
 
 module.exports = router;
