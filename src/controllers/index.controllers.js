@@ -311,9 +311,8 @@ const getDisponibilidad2 = async (req, res) => {
     a.mes1, a.mes2, a.mes3, a.mes4, a.mes5, a.mes6, 
     a.mes7, a.mes8, a.mes9, a.mes10, a.mes11, a.mes12,
     a.consumo, a.meses, a.ult_4meses, ROUND(a.cpma, 2) as cpma, a.cpma_inter, 
-    ROUND(a.med, 2) as med, (CASE
-    WHEN a.med IS NULL THEN null
-    WHEN (a.med > 0 AND a.cpma = 0) THEN 'Sin rotación'
+    ROUND(a.med, 2) as med, (CASE    
+    WHEN a.cpma = 0 THEN 'Sin rotación'
     WHEN a.med <= 0 THEN 'Desabastecido'
     WHEN (a.med > 0 AND a.med < 2) THEN 'Substock'
     WHEN (a.med >= 2 AND a.med <= 6) THEN 'Normostock'
