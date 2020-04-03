@@ -46,7 +46,7 @@ const getCategorias = async (req, res) => {
 const getDisponibilidad1 = async (req, res) => {
   const { almcod } = req.params;
   const result = await pool.query(`
-    SELECT a.med_inter, SUM(a.consumo) as consumo
+    SELECT a.med_inter, (SUM(a.consumo))::int as consumo
     FROM
     (SELECT a.medcod, trim(b.mednom) as mednom, a.entradas, a.salidas, a.stock, 
     a.mes1, a.mes2, a.mes3, a.mes4, a.mes5, a.mes6, 
